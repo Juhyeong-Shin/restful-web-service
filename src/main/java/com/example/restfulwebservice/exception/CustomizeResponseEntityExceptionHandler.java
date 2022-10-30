@@ -1,6 +1,5 @@
 package com.example.restfulwebservice.exception;
 
-import com.example.restfulwebservice.halloween.MonsterNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,13 +24,13 @@ public class CustomizeResponseEntityExceptionHandler extends ResponseEntityExcep
         return new ResponseEntity(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(MonsterNotFoundException.class)
-    public final ResponseEntity<Object> handleUserNotFoundException(Exception ex, WebRequest request) {
-        ExceptionResponse exceptionResponse =
-                new ExceptionResponse(ex.getMessage(), request.getDescription(false), new Date());
-
-        return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
-    }
+//    @ExceptionHandler(UserNotFoundException.class)
+//    public final ResponseEntity<Object> handleMonsterNotFoundException(Exception ex, WebRequest request) {
+//        ExceptionResponse exceptionResponse =
+//                new ExceptionResponse(ex.getMessage(), request.getDescription(false), new Date());
+//
+//        return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
+//    }
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
